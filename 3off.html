@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hello World using Backbone.js</title>
+</head>
+
+<body>
+    <!-- ========= -->
+    <!-- Your HTML -->
+    <!-- ========= -->
+    <div id="container">Loading...</div>
+    <!-- ========= -->
+    <!-- Libraries -->
+    <!-- ========= -->
+    <script src="../libs/jQuery/jquery-1.9.1.js"></script>
+    <script src="../libs/underscorejs/underscore-1_8_3.js"></script>
+    <script src="../libs/backbonejs/backbone.js"></script>
+    <!-- =============== -->
+    <!-- Javascript code -->
+    <!-- =============== -->
+    <script>
+    //Here creating an object 'myVal' and extending with Backbone.Events method
+    var myVal = _.extend({
+        name: 'hello'
+    }, Backbone.Events);
+
+    var myFunc = function() {
+        document.write('Hello');
+    };
+
+    var myFunc1 = function() {
+        document.write('Welcome to TutorialsPoint');
+    };
+
+    //The on() method will bind the callback function to objects 'myFunc' and 'myFunc1'
+    myVal.on('log', myFunc);
+    myVal.on('log', myFunc1);
+    document.write('Before using off event, values will be: ');
+
+    //trigger() method callbacks for the given event and display the text defined in the 'myFunc' and 'myFunc1' functions
+    myVal.trigger('log');
+
+    //The off() method removes the callback for 'myFunc' and logs only text of 'myFunc1'
+    myVal.off('log', myFunc);
+
+    document.write("<br>");
+    document.write('After using off event, values will be: ');
+    myVal.trigger('log');
+    </script>
+</body>
+
+</html>

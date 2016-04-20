@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hello World using Backbone.js</title>
+</head>
+
+<body>
+    <!-- ========= -->
+    <!-- Your HTML -->
+    <!-- ========= -->
+    <div id="container">Loading...</div>
+    <!-- ========= -->
+    <!-- Libraries -->
+    <!-- ========= -->
+    <script src="../libs/jQuery/jquery-1.9.1.js"></script>
+    <script src="../libs/underscorejs/underscore-1_8_3.js"></script>
+    <script src="../libs/backbonejs/backbone.js"></script>
+    <!-- =============== -->
+    <!-- Javascript code -->
+    <!-- =============== -->
+    <script>
+    //Here creating an object 'myVal' and extending with Backbone.Events method
+    var myVal = _.extend({
+        name: 'Sivaprabu',
+        age: 20
+    }, Backbone.Events);
+
+    // The on() method will bind callback function to an object and invoked whenever an event triggers
+    myVal.on('myFunc', function() {
+        document.write("The triggered value is: ");
+        document.write(this.name+"<br>"); //The name will get display by referring the current object
+        document.write(this.age); //The name will get display by referring the current object
+    });
+    //It triggers the 'myFunc' event on object 'myVal'
+    myVal.trigger('myFunc');
+    </script>
+</body>
+
+</html>
